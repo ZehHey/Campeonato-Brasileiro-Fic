@@ -29,6 +29,7 @@ for(var rodada = 1; rodada<20; rodada ++){ //Primeiro looping define 20 rodadas
     var jogosida = []
     var jogosvolta = []
     for(var cont = 1; cont <= 10; cont++){  // segundo looping define os dez jogos de cada rodada
+        var time = []
         var c1 = lista[Math.floor(Math.random() * lista.length)];
         lista.splice(lista.indexOf(c1), 1);
         var c2 = lista[Math.floor(Math.random() * lista.length)];
@@ -37,8 +38,8 @@ for(var rodada = 1; rodada<20; rodada ++){ //Primeiro looping define 20 rodadas
         if(!temporada.some(jogo => jogo.Partidas === partida)){ //condição que verifica se já existe a mesma partida na temporada
             jogosida.push(`${cont}: ${clubes[c1]} x ${clubes[c2]}`) //jogos de ida definidos
             jogosvolta.push(`${cont}: ${clubes[c2]} x ${clubes[c1]}`) // jogos de volta definidos
-    }else{
-        cont --
+        }else{
+            cont --
     }
 }
     temporada.push({Rodada: rodada, Partidas: jogosida}) // jogos de ida: Rodadas 1 a 19
