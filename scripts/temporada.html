@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            font-family: 'Courier New', Courier, monospace;
+        }
+        div.temp{
+            width: max-content;
+            padding: 10px;
+            border: 2px solid black;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        div.rodada>h1{
+            font-size: 1.2em;
+            margin: 0;
+            text-align: center;
+        }
+        div.rodada{
+            margin: 5px;
+            border: 1px solid black;
+            padding: 5px;
+            width: 350px;
+        }
+    </style>
+    <title>Brasileirao Fic</title>
+</head>
+<body>
+    <h1>Campeonato Brasileiro Fic</h1>
+    <input type="button" value="Gerar" onclick="gerar()">
+    <section>
+        <div class="temp">
+            <p>Gere os confrontos do campeonato</p>
+        </div>
+    </section>
+
+    <script src="temporada.js"></script>
+</body>
+</html>
