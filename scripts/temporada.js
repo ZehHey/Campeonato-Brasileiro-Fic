@@ -1,53 +1,62 @@
 const clubes = [
     'Flamengo',
     'Palmeiras',
-    'Atlético Mineiro',
+    'Atlético MG',
     'Fluminense',
     'São Paulo',
     'Internacional',
     'Grêmio',
-    'Athletico Paranaense',
+    'Athletico PR',
     'Ceará',
     'Fortaleza',
     'Corinthians',
     'Bahia',
-    'Atlético Goianiense',
+    'Atlético GO',
     'Sport',
     'Santos',
     'Chapecoense',
-    'América Mineiro',
+    'América MG',
     'Cuiabá',
     'Juventude',
-    'Red Bull Bragantino'
+    'RB Bragantino'
 ];
 
-var temporada = []
+var temporada = [];
 
 
-for(var rodada = 1; rodada<20; rodada ++){ //Primeiro looping define 20 rodadas
-    var lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,17, 18, 19];
-    var jogosida = []
-    var jogosvolta = []
-    for(var cont = 1; cont <= 10; cont++){  // segundo looping define os dez jogos de cada rodada
-        var time = []
+var rodadas = [];
+
+for(var rod = 1; rod < 20; rod ++){
+    var jogos = []
+    var lista= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    console.log(`Rodada ${rod}`)
+    for(var j = 1; j <= 10; j ++){
         var c1 = lista[Math.floor(Math.random() * lista.length)];
-        lista.splice(lista.indexOf(c1), 1);
         var c2 = lista[Math.floor(Math.random() * lista.length)];
-        lista.splice(lista.indexOf(c2), 1);
-        var partida = [`${clubes[c1]} x ${clubes[c2]}`]
-        if(!temporada.some(jogo => jogo.Partidas === partida)){ //condição que verifica se já existe a mesma partida na temporada
-            jogosida.push(`${cont}: ${clubes[c1]} x ${clubes[c2]}`) //jogos de ida definidos
-            jogosvolta.push(`${cont}: ${clubes[c2]} x ${clubes[c1]}`) // jogos de volta definidos
-        }else{
-            cont --
+        //console.log(lista)
+        while(c2 == c1){
+            c2 = lista[Math.floor(Math.random()* lista.length)]}
+
+        lista.splice(lista.indexOf(c1), 1)
+        lista.splice(lista.indexOf(c2), 1)
+
+        var teste1 = [clubes[c1], clubes[c2]]
+        var teste2 = [clubes[c2], clubes[c1]]
+        var teste = jogos.some(jogos => 
+            jogos.times == teste1 ||
+            jogos.times == teste2)
+        if(!teste){
+            confronto = {
+                jogo: j,
+                times: [clubes[c1], clubes[c2]]
+            }
+            jogos.push(confronto)}
+        //console.log(jogos)
+    }
+    console.log(`Rodada ${rod}`)
+    for(var p = 0;p < 10;p++){
+        console.log(`Jogo ${jogos[p].jogo}: ${jogos[p].times[0]} x ${jogos[p].times[1]}`)
     }
 }
-    temporada.push({Rodada: rodada, Partidas: jogosida}) // jogos de ida: Rodadas 1 a 19
-    temporada.push({Rodada: rodada + 19, Partidas: jogosvolta}) //jogos de volta: Rodadas 20 a 38 
-}
-temporada.sort(function(a, b){          //Função que retorna a lista de temporadas em ordem crescente
-    return a.Rodada - b.Rodada
-})
 
-console.log(temporada)
 
